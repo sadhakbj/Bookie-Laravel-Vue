@@ -16,6 +16,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): JsonResponse
     {
+        logger()->info('this is a test');
         $request->authenticate();
 
         $request->session()->regenerate();
@@ -28,11 +29,16 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): Response
     {
+        logger()->info('this is a test');
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+
+        logger()->info('this is a test');
+
 
         return response()->noContent();
     }
