@@ -11,17 +11,12 @@ interface ILoginCredentials {
   password: string;
 }
 
-
-
-const form = useForm({
+const form = useForm<ILoginCredentials>({
   email: "",
   password: "",
 });
 
-const form: FormMethods<ILoginCredentials> = useForm({
-  email: "",
-  password: "",
-});
+
 
 const router = useRouter();
 const authStore = useAuthStore();

@@ -1,29 +1,26 @@
 import { isAxiosError } from "axios";
 import { reactive } from "vue";
 
-interface FormFields {
-  [key: string]: string;
-}
 
 interface FormErrors {
   [key: string]: string[];
 }
 
-interface FormMethods {
-  fields: FormFields;
+interface FormMethods<T> {
+  fields: T;
   processing: boolean;
   errors: FormErrors;
-  submit(submitter: (fields: FormFields) => Promise<void>): Promise<void>;
+  submit(submitter: (fields: T) => Promise<void>): Promise<void>;
   hasError(field: string): boolean;
   getError(field: string): string;
 }
 
-export default function useForm(initialFields: FormFields): FormMethods {
+export default function useForm<T>(initialFields: any): FormMethods<T> {
   const state = reactive({
     fields: initialFields,
     processing: false,
     errors: {} as FormErrors,
-    async submit(submitter: (fields: FormFields) => Promise<void>): Promise<void> {
+    async submit(submitter: (fields: T) => Promise<void>): Promise<void> {
       if (state.processing) return;
 
       state.errors = {};
