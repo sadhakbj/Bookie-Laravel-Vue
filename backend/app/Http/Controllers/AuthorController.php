@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\{CreateAuthorRequest, UpdateAuthorRequest};
+use App\Http\Requests\CreateAuthorRequest;
+use App\Http\Requests\UpdateAuthorRequest;
 use App\Models\Author;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -14,7 +15,6 @@ class AuthorController extends Controller
     {
         return Author::query()->get();
     }
-
 
     public function store(CreateAuthorRequest $request): Model|Builder
     {

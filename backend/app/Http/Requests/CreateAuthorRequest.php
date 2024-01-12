@@ -22,12 +22,12 @@ class CreateAuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'        => 'required|string|min:3|max:30',
-            'email'       => 'email|unique:authors',
-            'website'     => 'url:http,https',
-            'bio'         => 'required|string|max:1000',
+            'name' => 'required|string|min:3|max:30',
+            'email' => 'email|unique:authors',
+            'website' => 'url:http,https',
+            'bio' => 'required|string|max:1000',
             'nationality' => 'string',
-            'genre.*'     => 'string',
+            'genre.*' => 'string',
         ];
     }
 }

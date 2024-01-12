@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Author;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -25,12 +24,12 @@ class UpdateAuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'        => 'required|string|min:3|max:30',
-            'email'       => ['email', Rule::unique('authors')->ignore((int)$this->segment(3))],
-            'website'     => 'url:http,https',
-            'bio'         => 'required|string|max:1000',
+            'name' => 'required|string|min:3|max:30',
+            'email' => ['email', Rule::unique('authors')->ignore((int) $this->segment(3))],
+            'website' => 'url:http,https',
+            'bio' => 'required|string|max:1000',
             'nationality' => 'string',
-            'genre.*'     => 'string',
+            'genre.*' => 'string',
         ];
     }
 }
