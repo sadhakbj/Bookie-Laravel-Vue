@@ -21,7 +21,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return response()->json(["sucess" => true, "data" => auth()->user()]);
+        return response()->json(['sucess' => true, 'data' => auth()->user()]);
     }
 
     /**
@@ -38,7 +38,6 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         logger()->info('this is a test');
-
 
         return response()->noContent();
     }
