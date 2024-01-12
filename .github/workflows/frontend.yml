@@ -1,0 +1,34 @@
+name: Frontend CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4  # Update to the latest version of actions/setup-node
+        with:
+          node-version: '18'  # Set the Node.js version to 18
+
+      - name: Install dependencies
+        run: cd client && npm install
+
+      - name: Type-check
+        run: cd client && npm run type-check
+
+      - name: Lint
+        run: cd client && npm run lint
+
+      - name: Format
+        run: cd client && npm run format
