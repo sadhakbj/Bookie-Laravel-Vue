@@ -1,1 +1,1 @@
-[![.github/workflows/test.yml](https://github.com/sadhakbj/Bookie-Laravel-Vue/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/sadhakbj/Bookie-Laravel-Vue/actions/workflows/test.yml)
+[![.github/workflows/backend.yml](https://github.com/sadhakbj/Bookie-Laravel-Vue/actions/workflows/backend.yml/badge.svg?branch=main)](https://github.com/sadhakbj/Bookie-Laravel-Vue/actions/workflows/backend.yml)
